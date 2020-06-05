@@ -1,10 +1,32 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default function App() {
+
+  //userState devolve um vetor
+  const[texto, setTexto] = useState('Texto Inicial!');
+  const[contador, setContador] = useState(0);
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text style={{marginBottom: 16}}>{texto}</Text>
+      <Button 
+        title="Alterar texto" 
+        onPress={() => setTexto("Novo Texto!")}
+      />
+      <Button 
+        title="Texto inicial" 
+        onPress={() => setTexto('Texto Inicial!')}
+      />
+      
+      <Text style={{marginTop: 16}}>{contador}</Text>
+      <Button 
+        title="Contador mais um" 
+        onPress={() => setContador(contador + 1)}
+      />
+      <Button 
+        title="Zerar contador" 
+        onPress={() => setContador(0)}
+      />
     </View>
   );
 }
@@ -12,7 +34,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFF',
     alignItems: 'center',
     justifyContent: 'center',
   },
